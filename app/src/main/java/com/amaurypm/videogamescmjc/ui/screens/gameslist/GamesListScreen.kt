@@ -6,6 +6,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -65,7 +67,6 @@ fun GamesListScreen(
         loadData()
     }
 
-
     Scaffold { innerPadding ->
         Box(
             modifier = Modifier.fillMaxSize()
@@ -74,6 +75,15 @@ fun GamesListScreen(
         ){
             if(showProgressBar)
                 CircularProgressBar()
+
+            LazyColumn {
+                items(games){game ->
+                    GameItem(
+                        navController = navController,
+                        game = game
+                    )
+                }
+            }
         }
     }
 

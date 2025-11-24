@@ -34,7 +34,6 @@ fun CircularProgressBar() {
         label = ""
     )
 
-
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Image(
             painter = image,
