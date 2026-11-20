@@ -5,6 +5,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.amaurypm.videogamescmjc.ui.screens.GameDetail
+import com.amaurypm.videogamescmjc.ui.screens.GamesList
 
 @Composable
 fun AppNavigation(){
@@ -17,15 +19,18 @@ fun AppNavigation(){
     ) {
 
         composable<ScreenDestination.GamesListScreenDestination> {
-
+            GamesList(
+                navController = navController
+            )
         }
 
         composable<ScreenDestination.GameDetailScreenDestination> {backStackEntry ->
 
             val args = backStackEntry.toRoute<ScreenDestination.GameDetailScreenDestination>()
 
-
-
+            GameDetail(
+                gameId = args.id
+            )
         }
 
     }
